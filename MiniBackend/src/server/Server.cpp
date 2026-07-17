@@ -4,6 +4,9 @@
 
 #include<iostream>
 
+#include<cerrno>
+#include<cstring>
+
 #include<sys/socket.h>
 #include<netinet/in.h>
 #include<unistd.h>
@@ -36,6 +39,20 @@ void Server::createSocket()
             "socket failed"
         );
     }
+
+    int reuse = 1;
+    if(setsockopt(
+        server_fd_,
+        SOL_SOCKET,
+        SO_REUSEADDR,
+        &reuse,
+        sizeof(reuse)
+    )==-1)
+    {
+        throw std::runtime_error(
+            std::string("setsockopt failed: ") + std::strerror(errno)
+        );
+    }
 }
 
 void Server::bindSocket()
@@ -52,7 +69,17 @@ void Server::bindSocket()
     )==-1)
     {
         throw std::runtime_error(
-            "bind failed"
+            std::string("bind failed: ") + std::strerror(errno)
+        );
+    }
+}
+
+void Server::listenSocket()
+{
+    if(listen(server_fd_, SOMAXCONN)==-1)
+    {
+        throw std::runtime_error(
+            std::string("listen failed: ") + std::strerror(errno)
         );
     }
 }
@@ -83,6 +110,10 @@ void Server::acceptLoop()
         std::cout
         <<req.method
         <<std::endl;
+
+        std::cout
+        << req.path
+        << std::endl;
 
         close(client_fd);
     }

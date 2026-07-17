@@ -13,7 +13,7 @@ Request Http::parseRequest(
     ss
     >> request.method
     >> request.path
-    >> request.version
+    >> request.version;
 
     return request;
 }
