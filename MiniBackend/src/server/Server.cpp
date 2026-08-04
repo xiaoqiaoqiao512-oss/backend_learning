@@ -1,11 +1,9 @@
 #include "Server.h"
-#include "../http/Http.h"
-#include "../http/Request.h"
+#include "http/Http.h"
+#include "http/Request.h"
+#include "http/Response.h"
 
 #include<iostream>
-
-#include<cerrno>
-#include<cstring>
 
 #include<sys/socket.h>
 #include<netinet/in.h>
@@ -15,7 +13,21 @@ Server::Server(int port)
     :
     port_(port),
     server_fd_(-1)
-    {}
+{
+    router_.get(
+        "/hello",
+        [](const Request& request)
+        {
+            Response res;
+            res.statusCode = 200;
+            res.statusText = "OK";
+            res.headers["Content-Type"] = "text/plain";
+            res.body = "Hello Router";
+
+            return res;
+        }
+    );
+}
 
 void Server::start()
 {
@@ -39,20 +51,6 @@ void Server::createSocket()
             "socket failed"
         );
     }
-
-    int reuse = 1;
-    if(setsockopt(
-        server_fd_,
-        SOL_SOCKET,
-        SO_REUSEADDR,
-        &reuse,
-        sizeof(reuse)
-    )==-1)
-    {
-        throw std::runtime_error(
-            std::string("setsockopt failed: ") + std::strerror(errno)
-        );
-    }
 }
 
 void Server::bindSocket()
@@ -69,7 +67,7 @@ void Server::bindSocket()
     )==-1)
     {
         throw std::runtime_error(
-            std::string("bind failed: ") + std::strerror(errno)
+            "bind failed"
         );
     }
 }
@@ -79,7 +77,7 @@ void Server::listenSocket()
     if(listen(server_fd_, SOMAXCONN)==-1)
     {
         throw std::runtime_error(
-            std::string("listen failed: ") + std::strerror(errno)
+            "listen failed"
         );
     }
 }
@@ -103,17 +101,26 @@ void Server::acceptLoop()
             0
         );   
 
-        std::string data(buffer);
+        if(n > 0){
+            std::string data(
+                buffer,
+                n
+            );
 
-        Request req = Http::parseRequest(data);
+            Request req = 
+                Http::parseRequest(data);
 
-        std::cout
-        <<req.method
-        <<std::endl;
+            Response response = router_.handle(req);
 
-        std::cout
-        << req.path
-        << std::endl;
+            std::string result = response.serialize();
+
+            send(
+                client_fd,
+                result.c_str(),
+                result.size(),
+                0
+            );
+        }
 
         close(client_fd);
     }

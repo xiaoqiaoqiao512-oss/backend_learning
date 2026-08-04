@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/minibackend.dir/src/main.cpp.o CMakeFiles/minibackend.dir/src/server/Server.cpp.o CMakeFiles/minibackend.dir/src/http/Http.cpp.o CMakeFiles/minibackend.dir/src/http/Response.cpp.o CMakeFiles/minibackend.dir/src/router/Router.cpp.o -o minibackend

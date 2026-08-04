@@ -1,5 +1,7 @@
 #pragma once
 
+#include "router/Router.h"
+
 class Server
 {
 public:
@@ -15,4 +17,5 @@ private:
 private:
     int port_;
     int server_fd_;
+    Router router_;
 };
