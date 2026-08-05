@@ -1,6 +1,7 @@
 CMakeFiles/minibackend.dir/src/service/UserService.cpp.o: \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.cpp \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/model/User.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/string \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/max.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__algorithm/comp.h \

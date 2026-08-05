@@ -1,11 +1,16 @@
 #include "UserService.h"
 
-std::string UserService::getUserInfo(
-    int id
-){
-    if(id == 1){
-        return "Tony";
-    }
+int UserService::count = 0;
 
-    return "Unknow User";
+User UserService::createUser(
+    const std::string& name,
+    int age
+)
+{
+    User user;
+    user.name = name;
+    user.id = ++count;
+    user.age = age;
+
+    return user;
 }

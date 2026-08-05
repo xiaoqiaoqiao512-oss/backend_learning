@@ -17,21 +17,37 @@ Response UserController::getUser(
     std::string name =
         data["name"];
     
+    int age =
+        data["age"]
+        .get<int>();
+
+    User user =
+        service.createUser(
+            name,
+            age
+        );
+    
+    json result;
+
+    result["id"]
+        = user.id;
+    
+    result["name"]
+        = user.name;
+
+
+    result["age"]
+        = user.age;
+    
     Response response;
 
     response.statusCode = 200;
     response.statusText = "OK";
-
     response.headers["Content-Type"]
         = "application/json";
-    
-    json result;
 
-    result["username"]
-        =
-        name;
-    
-    response.body = result.dump();
+    response.body = 
+        result.dump();
 
     return response;
 }

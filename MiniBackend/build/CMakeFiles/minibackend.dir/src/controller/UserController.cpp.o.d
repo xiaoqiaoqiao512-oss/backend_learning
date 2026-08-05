@@ -674,6 +674,7 @@ CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__type_traits/container_traits.h \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.h \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/model/User.h \
   /Users/tonycoder/miniconda3/include/nlohmann/json.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/functional \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__functional/binary_negate.h \

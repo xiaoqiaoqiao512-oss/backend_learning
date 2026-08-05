@@ -782,6 +782,7 @@ CMakeFiles/minibackend.dir/src/server/Server.cpp.o: \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.h \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.h \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/model/User.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h \
