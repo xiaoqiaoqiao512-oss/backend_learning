@@ -13,6 +13,9 @@ private:
     void bindSocket();
     void listenSocket();
     void acceptLoop();
+    std::string readRequest(
+        int client_fd
+    );
 
 private:
     int port_;

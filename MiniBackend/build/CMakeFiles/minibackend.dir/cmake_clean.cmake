@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o"
+  "CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o.d"
   "CMakeFiles/minibackend.dir/src/http/Http.cpp.o"
   "CMakeFiles/minibackend.dir/src/http/Http.cpp.o.d"
   "CMakeFiles/minibackend.dir/src/http/Response.cpp.o"
@@ -9,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/minibackend.dir/src/router/Router.cpp.o.d"
   "CMakeFiles/minibackend.dir/src/server/Server.cpp.o"
   "CMakeFiles/minibackend.dir/src/server/Server.cpp.o.d"
+  "CMakeFiles/minibackend.dir/src/service/UserService.cpp.o"
+  "CMakeFiles/minibackend.dir/src/service/UserService.cpp.o.d"
   "minibackend"
   "minibackend.pdb"
 )

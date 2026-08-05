@@ -129,6 +129,30 @@ minibackend/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/build
 .PHONY : minibackend/fast
 
+src/controller/UserController.o: src/controller/UserController.cpp.o
+.PHONY : src/controller/UserController.o
+
+# target to build an object file
+src/controller/UserController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o
+.PHONY : src/controller/UserController.cpp.o
+
+src/controller/UserController.i: src/controller/UserController.cpp.i
+.PHONY : src/controller/UserController.i
+
+# target to preprocess a source file
+src/controller/UserController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/controller/UserController.cpp.i
+.PHONY : src/controller/UserController.cpp.i
+
+src/controller/UserController.s: src/controller/UserController.cpp.s
+.PHONY : src/controller/UserController.s
+
+# target to generate assembly for a file
+src/controller/UserController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/controller/UserController.cpp.s
+.PHONY : src/controller/UserController.cpp.s
+
 src/http/Http.o: src/http/Http.cpp.o
 .PHONY : src/http/Http.o
 
@@ -249,6 +273,30 @@ src/server/Server.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/server/Server.cpp.s
 .PHONY : src/server/Server.cpp.s
 
+src/service/UserService.o: src/service/UserService.cpp.o
+.PHONY : src/service/UserService.o
+
+# target to build an object file
+src/service/UserService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/service/UserService.cpp.o
+.PHONY : src/service/UserService.cpp.o
+
+src/service/UserService.i: src/service/UserService.cpp.i
+.PHONY : src/service/UserService.i
+
+# target to preprocess a source file
+src/service/UserService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/service/UserService.cpp.i
+.PHONY : src/service/UserService.cpp.i
+
+src/service/UserService.s: src/service/UserService.cpp.s
+.PHONY : src/service/UserService.s
+
+# target to generate assembly for a file
+src/service/UserService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/service/UserService.cpp.s
+.PHONY : src/service/UserService.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -258,6 +306,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... minibackend"
+	@echo "... src/controller/UserController.o"
+	@echo "... src/controller/UserController.i"
+	@echo "... src/controller/UserController.s"
 	@echo "... src/http/Http.o"
 	@echo "... src/http/Http.i"
 	@echo "... src/http/Http.s"
@@ -273,6 +324,9 @@ help:
 	@echo "... src/server/Server.o"
 	@echo "... src/server/Server.i"
 	@echo "... src/server/Server.s"
+	@echo "... src/service/UserService.o"
+	@echo "... src/service/UserService.i"
+	@echo "... src/service/UserService.s"
 .PHONY : help
 
 

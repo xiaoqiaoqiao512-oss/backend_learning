@@ -2,31 +2,22 @@
 #include "http/Http.h"
 #include "http/Request.h"
 #include "http/Response.h"
+#include "controller/UserController.h"
 
-#include<iostream>
+#include <iostream>
+#include <cstring>
 
-#include<sys/socket.h>
-#include<netinet/in.h>
-#include<unistd.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#include <unistd.h>
 
 Server::Server(int port)
-    :
-    port_(port),
-    server_fd_(-1)
+    : port_(port),
+      server_fd_(-1)
 {
     router_.get(
-        "/hello",
-        [](const Request& request)
-        {
-            Response res;
-            res.statusCode = 200;
-            res.statusText = "OK";
-            res.headers["Content-Type"] = "text/plain";
-            res.body = "Hello Router";
-
-            return res;
-        }
-    );
+        "/user",
+        UserController::getUser);
 }
 
 void Server::start()
@@ -42,14 +33,12 @@ void Server::createSocket()
     server_fd_ = socket(
         AF_INET,
         SOCK_STREAM,
-        0
-    );
+        0);
 
-    if(server_fd_ == -1)
+    if (server_fd_ == -1)
     {
         throw std::runtime_error(
-            "socket failed"
-        );
+            "socket failed");
     }
 }
 
@@ -60,26 +49,141 @@ void Server::bindSocket()
     address.sin_port = htons(port_);
     address.sin_addr.s_addr = INADDR_ANY;
 
-    if(bind(
-        server_fd_,
-        (sockaddr*)&address,
-        sizeof(address)
-    )==-1)
+    if (bind(
+            server_fd_,
+            (sockaddr *)&address,
+            sizeof(address)) == -1)
     {
         throw std::runtime_error(
-            "bind failed"
-        );
+            "bind failed");
     }
 }
 
 void Server::listenSocket()
 {
-    if(listen(server_fd_, SOMAXCONN)==-1)
+    if (listen(server_fd_, SOMAXCONN) == -1)
     {
         throw std::runtime_error(
-            "listen failed"
+            "listen failed");
+    }
+}
+
+std::string Server::readRequest(
+    int client_fd
+){
+    std::string request;
+
+    char buffer[4096];
+
+    while(true){
+        int n = recv(
+            client_fd,
+            buffer,
+            sizeof(buffer),
+            0
+        );
+
+        if(n <= 0){
+            break;
+        }
+
+        request.append(
+            buffer,
+            n
+        );
+
+        if(request.find("\r\n\r\n")
+            != std::string::npos)
+        {
+            break;
+        }
+    }
+
+    size_t headerEnd = 
+        request.find("\r\n\r\n");
+
+    if(headerEnd == std::string::npos){
+        return request;
+    }
+
+    std::string header =
+        request.substr(
+            0,
+            headerEnd
+        );
+    
+    size_t contentLength = 0;
+
+    auto pos =
+        header.find(
+            "Content-Length"
+        );
+    
+    if(pos != std::string::npos)
+    {
+        pos += strlen(
+            "Content-Length:"
+        );
+
+        while(
+            header[pos] == ' '
+        ){
+            pos++;
+        }
+
+        contentLength = 
+            std::stoi(
+                header.substr(pos)
+            );
+    }
+
+    size_t bodyStart = headerEnd + 4;
+
+    while(
+        request.size() - bodyStart
+        <
+        contentLength
+    ){
+        int n = recv(
+            client_fd,
+            buffer,
+            sizeof(buffer),
+            0
+        );
+
+        if(n <= 0){
+            break;
+        }
+
+        request.append(
+            buffer,
+            n
         );
     }
+    return request;
+}
+
+bool sendAll(
+    int fd,
+    const std::string& data 
+){
+    size_t total = 0;
+    while(total < data.size()){
+        int sent = send(
+            fd,
+            data.c_str() + total,
+            data.size() - total,
+            0
+        );
+
+        if(sent <= 0){
+            return false;
+        }
+
+        total += sent;
+    }
+
+    return true;
 }
 
 void Server::acceptLoop()
@@ -89,38 +193,32 @@ void Server::acceptLoop()
         int client_fd = accept(
             server_fd_,
             nullptr,
-            nullptr
-        );
+            nullptr);
 
-        char buffer[4096]{};
-
-        int n = recv(
-            client_fd,
-            buffer,
-            sizeof(buffer)-1,
-            0
-        );   
-
-        if(n > 0){
-            std::string data(
-                buffer,
-                n
-            );
-
-            Request req = 
-                Http::parseRequest(data);
-
-            Response response = router_.handle(req);
-
-            std::string result = response.serialize();
-
-            send(
-                client_fd,
-                result.c_str(),
-                result.size(),
-                0
-            );
+        if (client_fd == -1)
+        {
+            continue;
         }
+
+        std::string data = 
+            readRequest(client_fd);
+
+        if(data.empty()){
+            close(client_fd);
+            continue;
+        }
+
+        Request req =
+            Http::parseRequest(data);
+
+        Response response = router_.handle(req);
+
+        std::string result = response.serialize();
+
+        sendAll(
+            client_fd,
+            result
+        );
 
         close(client_fd);
     }

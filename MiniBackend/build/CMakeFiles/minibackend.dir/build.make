@@ -76,71 +76,99 @@ CMakeFiles/minibackend.dir/src/main.cpp.o: CMakeFiles/minibackend.dir/flags.make
 CMakeFiles/minibackend.dir/src/main.cpp.o: /Users/tonycoder/Backend_Learning/MiniBackend/src/main.cpp
 CMakeFiles/minibackend.dir/src/main.cpp.o: CMakeFiles/minibackend.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/minibackend.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/main.cpp.o -MF CMakeFiles/minibackend.dir/src/main.cpp.o.d -o CMakeFiles/minibackend.dir/src/main.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/main.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/main.cpp.o -MF CMakeFiles/minibackend.dir/src/main.cpp.o.d -o CMakeFiles/minibackend.dir/src/main.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/main.cpp
 
 CMakeFiles/minibackend.dir/src/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minibackend.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/main.cpp > CMakeFiles/minibackend.dir/src/main.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/main.cpp > CMakeFiles/minibackend.dir/src/main.cpp.i
 
 CMakeFiles/minibackend.dir/src/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minibackend.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/main.cpp -o CMakeFiles/minibackend.dir/src/main.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/main.cpp -o CMakeFiles/minibackend.dir/src/main.cpp.s
 
 CMakeFiles/minibackend.dir/src/server/Server.cpp.o: CMakeFiles/minibackend.dir/flags.make
 CMakeFiles/minibackend.dir/src/server/Server.cpp.o: /Users/tonycoder/Backend_Learning/MiniBackend/src/server/Server.cpp
 CMakeFiles/minibackend.dir/src/server/Server.cpp.o: CMakeFiles/minibackend.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/minibackend.dir/src/server/Server.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/server/Server.cpp.o -MF CMakeFiles/minibackend.dir/src/server/Server.cpp.o.d -o CMakeFiles/minibackend.dir/src/server/Server.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/server/Server.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/server/Server.cpp.o -MF CMakeFiles/minibackend.dir/src/server/Server.cpp.o.d -o CMakeFiles/minibackend.dir/src/server/Server.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/server/Server.cpp
 
 CMakeFiles/minibackend.dir/src/server/Server.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minibackend.dir/src/server/Server.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/server/Server.cpp > CMakeFiles/minibackend.dir/src/server/Server.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/server/Server.cpp > CMakeFiles/minibackend.dir/src/server/Server.cpp.i
 
 CMakeFiles/minibackend.dir/src/server/Server.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minibackend.dir/src/server/Server.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/server/Server.cpp -o CMakeFiles/minibackend.dir/src/server/Server.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/server/Server.cpp -o CMakeFiles/minibackend.dir/src/server/Server.cpp.s
 
 CMakeFiles/minibackend.dir/src/http/Http.cpp.o: CMakeFiles/minibackend.dir/flags.make
 CMakeFiles/minibackend.dir/src/http/Http.cpp.o: /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.cpp
 CMakeFiles/minibackend.dir/src/http/Http.cpp.o: CMakeFiles/minibackend.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/minibackend.dir/src/http/Http.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/http/Http.cpp.o -MF CMakeFiles/minibackend.dir/src/http/Http.cpp.o.d -o CMakeFiles/minibackend.dir/src/http/Http.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/http/Http.cpp.o -MF CMakeFiles/minibackend.dir/src/http/Http.cpp.o.d -o CMakeFiles/minibackend.dir/src/http/Http.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.cpp
 
 CMakeFiles/minibackend.dir/src/http/Http.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minibackend.dir/src/http/Http.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.cpp > CMakeFiles/minibackend.dir/src/http/Http.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.cpp > CMakeFiles/minibackend.dir/src/http/Http.cpp.i
 
 CMakeFiles/minibackend.dir/src/http/Http.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minibackend.dir/src/http/Http.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.cpp -o CMakeFiles/minibackend.dir/src/http/Http.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.cpp -o CMakeFiles/minibackend.dir/src/http/Http.cpp.s
 
 CMakeFiles/minibackend.dir/src/http/Response.cpp.o: CMakeFiles/minibackend.dir/flags.make
 CMakeFiles/minibackend.dir/src/http/Response.cpp.o: /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.cpp
 CMakeFiles/minibackend.dir/src/http/Response.cpp.o: CMakeFiles/minibackend.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/minibackend.dir/src/http/Response.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/http/Response.cpp.o -MF CMakeFiles/minibackend.dir/src/http/Response.cpp.o.d -o CMakeFiles/minibackend.dir/src/http/Response.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/http/Response.cpp.o -MF CMakeFiles/minibackend.dir/src/http/Response.cpp.o.d -o CMakeFiles/minibackend.dir/src/http/Response.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.cpp
 
 CMakeFiles/minibackend.dir/src/http/Response.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minibackend.dir/src/http/Response.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.cpp > CMakeFiles/minibackend.dir/src/http/Response.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.cpp > CMakeFiles/minibackend.dir/src/http/Response.cpp.i
 
 CMakeFiles/minibackend.dir/src/http/Response.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minibackend.dir/src/http/Response.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.cpp -o CMakeFiles/minibackend.dir/src/http/Response.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Response.cpp -o CMakeFiles/minibackend.dir/src/http/Response.cpp.s
 
 CMakeFiles/minibackend.dir/src/router/Router.cpp.o: CMakeFiles/minibackend.dir/flags.make
 CMakeFiles/minibackend.dir/src/router/Router.cpp.o: /Users/tonycoder/Backend_Learning/MiniBackend/src/router/Router.cpp
 CMakeFiles/minibackend.dir/src/router/Router.cpp.o: CMakeFiles/minibackend.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/minibackend.dir/src/router/Router.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/router/Router.cpp.o -MF CMakeFiles/minibackend.dir/src/router/Router.cpp.o.d -o CMakeFiles/minibackend.dir/src/router/Router.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/router/Router.cpp
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/router/Router.cpp.o -MF CMakeFiles/minibackend.dir/src/router/Router.cpp.o.d -o CMakeFiles/minibackend.dir/src/router/Router.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/router/Router.cpp
 
 CMakeFiles/minibackend.dir/src/router/Router.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minibackend.dir/src/router/Router.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/router/Router.cpp > CMakeFiles/minibackend.dir/src/router/Router.cpp.i
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/router/Router.cpp > CMakeFiles/minibackend.dir/src/router/Router.cpp.i
 
 CMakeFiles/minibackend.dir/src/router/Router.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minibackend.dir/src/router/Router.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/router/Router.cpp -o CMakeFiles/minibackend.dir/src/router/Router.cpp.s
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/router/Router.cpp -o CMakeFiles/minibackend.dir/src/router/Router.cpp.s
+
+CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o: CMakeFiles/minibackend.dir/flags.make
+CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o: /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.cpp
+CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o: CMakeFiles/minibackend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o -MF CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o.d -o CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.cpp
+
+CMakeFiles/minibackend.dir/src/controller/UserController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minibackend.dir/src/controller/UserController.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.cpp > CMakeFiles/minibackend.dir/src/controller/UserController.cpp.i
+
+CMakeFiles/minibackend.dir/src/controller/UserController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minibackend.dir/src/controller/UserController.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.cpp -o CMakeFiles/minibackend.dir/src/controller/UserController.cpp.s
+
+CMakeFiles/minibackend.dir/src/service/UserService.cpp.o: CMakeFiles/minibackend.dir/flags.make
+CMakeFiles/minibackend.dir/src/service/UserService.cpp.o: /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.cpp
+CMakeFiles/minibackend.dir/src/service/UserService.cpp.o: CMakeFiles/minibackend.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/minibackend.dir/src/service/UserService.cpp.o"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/minibackend.dir/src/service/UserService.cpp.o -MF CMakeFiles/minibackend.dir/src/service/UserService.cpp.o.d -o CMakeFiles/minibackend.dir/src/service/UserService.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.cpp
+
+CMakeFiles/minibackend.dir/src/service/UserService.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/minibackend.dir/src/service/UserService.cpp.i"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.cpp > CMakeFiles/minibackend.dir/src/service/UserService.cpp.i
+
+CMakeFiles/minibackend.dir/src/service/UserService.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/minibackend.dir/src/service/UserService.cpp.s"
+	/usr/bin/clang++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.cpp -o CMakeFiles/minibackend.dir/src/service/UserService.cpp.s
 
 # Object files for target minibackend
 minibackend_OBJECTS = \
@@ -148,7 +176,9 @@ minibackend_OBJECTS = \
 "CMakeFiles/minibackend.dir/src/server/Server.cpp.o" \
 "CMakeFiles/minibackend.dir/src/http/Http.cpp.o" \
 "CMakeFiles/minibackend.dir/src/http/Response.cpp.o" \
-"CMakeFiles/minibackend.dir/src/router/Router.cpp.o"
+"CMakeFiles/minibackend.dir/src/router/Router.cpp.o" \
+"CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o" \
+"CMakeFiles/minibackend.dir/src/service/UserService.cpp.o"
 
 # External object files for target minibackend
 minibackend_EXTERNAL_OBJECTS =
@@ -158,9 +188,11 @@ minibackend: CMakeFiles/minibackend.dir/src/server/Server.cpp.o
 minibackend: CMakeFiles/minibackend.dir/src/http/Http.cpp.o
 minibackend: CMakeFiles/minibackend.dir/src/http/Response.cpp.o
 minibackend: CMakeFiles/minibackend.dir/src/router/Router.cpp.o
+minibackend: CMakeFiles/minibackend.dir/src/controller/UserController.cpp.o
+minibackend: CMakeFiles/minibackend.dir/src/service/UserService.cpp.o
 minibackend: CMakeFiles/minibackend.dir/build.make
 minibackend: CMakeFiles/minibackend.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable minibackend"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/Users/tonycoder/Backend_Learning/MiniBackend/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable minibackend"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/minibackend.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
