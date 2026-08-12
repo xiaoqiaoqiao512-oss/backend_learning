@@ -29,7 +29,7 @@ add_executable(
 
     src/service/UserService.cpp
 
-    src/repository/UserRepository
+    src/repository/UserRepository.cpp
 )
 
 target_include_directories(
