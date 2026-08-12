@@ -225,6 +225,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/repository/UserRepository.o: src/repository/UserRepository.cpp.o
+.PHONY : src/repository/UserRepository.o
+
+# target to build an object file
+src/repository/UserRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/repository/UserRepository.cpp.o
+.PHONY : src/repository/UserRepository.cpp.o
+
+src/repository/UserRepository.i: src/repository/UserRepository.cpp.i
+.PHONY : src/repository/UserRepository.i
+
+# target to preprocess a source file
+src/repository/UserRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/repository/UserRepository.cpp.i
+.PHONY : src/repository/UserRepository.cpp.i
+
+src/repository/UserRepository.s: src/repository/UserRepository.cpp.s
+.PHONY : src/repository/UserRepository.s
+
+# target to generate assembly for a file
+src/repository/UserRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/minibackend.dir/build.make CMakeFiles/minibackend.dir/src/repository/UserRepository.cpp.s
+.PHONY : src/repository/UserRepository.cpp.s
+
 src/router/Router.o: src/router/Router.cpp.o
 .PHONY : src/router/Router.o
 
@@ -318,6 +342,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/repository/UserRepository.o"
+	@echo "... src/repository/UserRepository.i"
+	@echo "... src/repository/UserRepository.s"
 	@echo "... src/router/Router.o"
 	@echo "... src/router/Router.i"
 	@echo "... src/router/Router.s"

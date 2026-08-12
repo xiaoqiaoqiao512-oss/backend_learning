@@ -13,11 +13,25 @@
 
 Server::Server(int port)
     : port_(port),
-      server_fd_(-1)
+      server_fd_(-1),
+      userController_(userService_)
 {
     router_.get(
+        "/user/:id",
+        std::bind(
+            &UserController::getUserById,
+            &userController_,
+            std::placeholders::_1
+        )
+    );
+    router_.post(
         "/user",
-        UserController::getUser);
+        std::bind(
+            &UserController::createUser,
+            &userController_,
+            std::placeholders::_1
+        )
+    );
 }
 
 void Server::start()

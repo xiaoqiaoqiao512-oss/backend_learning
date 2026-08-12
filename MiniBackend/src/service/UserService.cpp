@@ -12,5 +12,14 @@ User UserService::createUser(
     user.id = ++count;
     user.age = age;
 
+    repository_.save(user);
+
     return user;
+}
+
+User* UserService::getUserById(
+    int id
+)
+{
+    return repository_.findById(id);
 }

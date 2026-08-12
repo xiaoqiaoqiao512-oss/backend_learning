@@ -5,6 +5,7 @@
 #include <functional>
 #include <unordered_map>
 #include <string>
+#include <vector>
 
 class Router{
 public:
@@ -16,13 +17,28 @@ public:
         Handler handler
     );
 
+    void post(
+        const std::string& path,
+        Handler handler
+    );
+
     Response handle(
-        const Request& request
+        Request& request
     );
 
 private:
-    std::unordered_map<
-        std::string,
-        Handler
-    > getRoutes;
+    bool match(
+        const std::string& routePath,
+        const std::string& requestPath,
+        Request& request
+    );
+
+private:
+    struct Route
+    {
+        std::string method;
+        std::string path;
+        Handler handler;
+    };
+    std::vector<Route> routes_;
 };

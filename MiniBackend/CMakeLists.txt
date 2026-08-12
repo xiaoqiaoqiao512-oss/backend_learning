@@ -28,6 +28,8 @@ add_executable(
     src/controller/UserController.cpp
 
     src/service/UserService.cpp
+
+    src/repository/UserRepository
 )
 
 target_include_directories(

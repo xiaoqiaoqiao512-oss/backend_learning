@@ -3,9 +3,15 @@
 
 using json = nlohmann::json;
 
-UserService UserController::service;
+UserController::UserController(
+    UserService& service
+)
+:
+service_(service)
+{
+}
 
-Response UserController::getUser(
+Response UserController::createUser(
     const Request& request
 )
 {
@@ -22,7 +28,7 @@ Response UserController::getUser(
         .get<int>();
 
     User user =
-        service.createUser(
+        service_.createUser(
             name,
             age
         );
@@ -39,15 +45,38 @@ Response UserController::getUser(
     result["age"]
         = user.age;
     
-    Response response;
+    return Response::json(
+        result.dump()
+    );
+}
 
-    response.statusCode = 200;
-    response.statusText = "OK";
-    response.headers["Content-Type"]
-        = "application/json";
+Response UserController::getUserById(
+    const Request& request
+)
+{
+    int id = 
+        std::stoi(
+            request.params.at("id")
+        );
 
-    response.body = 
-        result.dump();
+    User* user = 
+        service_.getUserById(id);
 
-    return response;
+    if(user == nullptr)
+    {
+        return Response::error(
+            404,
+            "User not found"
+        );
+    }
+
+    json result;
+
+    result["id"] = id;
+    result["name"] = user->name;
+    result["age"] = user->age;
+
+    return Response::json(
+        result.dump()
+    );
 }

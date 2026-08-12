@@ -778,4 +778,8 @@ CMakeFiles/minibackend.dir/src/main.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsblkcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg
+  /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/model/User.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/repository/UserRepository.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.h

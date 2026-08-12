@@ -1,6 +1,7 @@
 #include "Response.h"
 
 #include<sstream>
+#include<nlohmann/json.hpp>
 
 std::string Response::serialize() const{
     std::stringstream ss;
@@ -47,4 +48,59 @@ std::string Response::serialize() const{
     ss<<body;
 
     return ss.str();
+}
+
+Response Response::json(
+    const std::string& data
+)
+{
+    Response response;
+
+    response.statusCode = 200;
+    response.statusText = "OK";
+
+    response.headers[
+        "Content-Type"
+    ] = "application/json";
+
+    response.body = data;
+
+    return response;
+}
+
+Response Response::error(
+    int code,
+    const std::string& message
+)
+{
+    Response response;
+
+    response.statusCode = code;
+
+    if(code == 400)
+    {
+        response.statusText = "Bad Request";
+    }
+    else if(code == 404)
+    {
+        response.statusText = "Not Found";
+    }
+    else
+    {
+        response.statusText = "Error";
+    }
+
+
+    response.headers[
+        "Content-Type"
+    ] = "application/json";
+
+
+    nlohmann::json body;
+
+    body["error"] = message;
+
+    response.body = body.dump();
+
+    return response;
 }

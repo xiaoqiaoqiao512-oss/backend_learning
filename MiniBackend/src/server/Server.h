@@ -1,6 +1,8 @@
 #pragma once
 
 #include "router/Router.h"
+#include "service/UserService.h"
+#include "controller/UserController.h"
 
 class Server
 {
@@ -21,4 +23,7 @@ private:
     int port_;
     int server_fd_;
     Router router_;
+
+    UserService userService_;
+    UserController userController_;
 };

@@ -40,5 +40,11 @@
   "command": "/usr/bin/clang++  -I/Users/tonycoder/Backend_Learning/MiniBackend/src -isystem /Users/tonycoder/miniconda3/include -g -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/minibackend.dir/src/service/UserService.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.cpp",
   "file": "/Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.cpp",
   "output": "CMakeFiles/minibackend.dir/src/service/UserService.cpp.o"
+},
+{
+  "directory": "/Users/tonycoder/Backend_Learning/MiniBackend/build",
+  "command": "/usr/bin/clang++  -I/Users/tonycoder/Backend_Learning/MiniBackend/src -isystem /Users/tonycoder/miniconda3/include -g -std=gnu++17 -arch arm64 -Wall -Wextra -Wpedantic -o CMakeFiles/minibackend.dir/src/repository/UserRepository.cpp.o -c /Users/tonycoder/Backend_Learning/MiniBackend/src/repository/UserRepository.cpp",
+  "file": "/Users/tonycoder/Backend_Learning/MiniBackend/src/repository/UserRepository.cpp",
+  "output": "CMakeFiles/minibackend.dir/src/repository/UserRepository.cpp.o"
 }
 ]

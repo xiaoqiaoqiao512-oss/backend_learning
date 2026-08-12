@@ -7,6 +7,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/minibackend.dir/src/http/Response.cpp.o.d"
   "CMakeFiles/minibackend.dir/src/main.cpp.o"
   "CMakeFiles/minibackend.dir/src/main.cpp.o.d"
+  "CMakeFiles/minibackend.dir/src/repository/UserRepository.cpp.o"
+  "CMakeFiles/minibackend.dir/src/repository/UserRepository.cpp.o.d"
   "CMakeFiles/minibackend.dir/src/router/Router.cpp.o"
   "CMakeFiles/minibackend.dir/src/router/Router.cpp.o.d"
   "CMakeFiles/minibackend.dir/src/server/Server.cpp.o"

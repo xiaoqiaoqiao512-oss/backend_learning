@@ -779,10 +779,11 @@ CMakeFiles/minibackend.dir/src/server/Server.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/sys/_types/_fsfilcnt_t.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/_types/_nl_item.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/cstdarg \
-  /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.h \
-  /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.h \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/service/UserService.h \
   /Users/tonycoder/Backend_Learning/MiniBackend/src/model/User.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/repository/UserRepository.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/controller/UserController.h \
+  /Users/tonycoder/Backend_Learning/MiniBackend/src/http/Http.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/istream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/c++/v1/__ostream/basic_ostream.h \

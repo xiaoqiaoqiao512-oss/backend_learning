@@ -6,10 +6,18 @@
 
 class UserController{
 public:
-    static Response getUser(
+    UserController(
+        UserService& service
+    );
+
+    Response createUser(
         const Request& Request
     );
 
+    Response getUserById(
+        const Request& request
+    );
+
 private:
-    static UserService service;
+    UserService& service_;
 };
