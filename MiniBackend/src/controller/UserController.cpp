@@ -20,6 +20,38 @@ Response UserController::createUser(
             request.body
         );
 
+    if(!data.contains("name"))
+    {
+        return Response::error(
+            400,
+            "name is required"
+        );
+    }
+
+    if(!data.contains("age"))
+    {
+        return Response::error(
+            400,
+            "age is required"
+        );
+    }
+
+    if(!data["name"].is_string())
+    {
+        return Response::error(
+            400,
+            "name must be string"
+        );
+    }
+
+    if(!data["age"].is_number_integer())
+    {
+        return Response::error(
+            400,
+            "age must be a integer"
+        );
+    }
+
     std::string name =
         data["name"];
     
@@ -59,10 +91,10 @@ Response UserController::getUserById(
             request.params.at("id")
         );
 
-    User* user = 
+    std::optional<User> user = 
         service_.getUserById(id);
 
-    if(user == nullptr)
+    if(!user)
     {
         return Response::error(
             404,

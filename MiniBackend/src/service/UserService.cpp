@@ -17,7 +17,7 @@ User UserService::createUser(
     return user;
 }
 
-User* UserService::getUserById(
+std::optional<User> UserService::getUserById(
     int id
 )
 {

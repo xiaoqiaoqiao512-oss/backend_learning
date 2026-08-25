@@ -3,6 +3,8 @@
 #include "http/Request.h"
 #include "http/Response.h"
 #include "controller/UserController.h"
+#include "middleware/LoggerMiddleware.h"
+#include "middleware/TimerMiddleware.h"
 
 #include <iostream>
 #include <cstring>
@@ -21,17 +23,13 @@ Server::Server(int port)
         std::bind(
             &UserController::getUserById,
             &userController_,
-            std::placeholders::_1
-        )
-    );
+            std::placeholders::_1));
     router_.post(
         "/user",
         std::bind(
             &UserController::createUser,
             &userController_,
-            std::placeholders::_1
-        )
-    );
+            std::placeholders::_1));
 }
 
 void Server::start()
@@ -83,114 +81,109 @@ void Server::listenSocket()
 }
 
 std::string Server::readRequest(
-    int client_fd
-){
+    int client_fd)
+{
     std::string request;
 
     char buffer[4096];
 
-    while(true){
+    while (true)
+    {
         int n = recv(
             client_fd,
             buffer,
             sizeof(buffer),
-            0
-        );
+            0);
 
-        if(n <= 0){
+        if (n <= 0)
+        {
             break;
         }
 
         request.append(
             buffer,
-            n
-        );
+            n);
 
-        if(request.find("\r\n\r\n")
-            != std::string::npos)
+        if (request.find("\r\n\r\n") != std::string::npos)
         {
             break;
         }
     }
 
-    size_t headerEnd = 
+    size_t headerEnd =
         request.find("\r\n\r\n");
 
-    if(headerEnd == std::string::npos){
+    if (headerEnd == std::string::npos)
+    {
         return request;
     }
 
     std::string header =
         request.substr(
             0,
-            headerEnd
-        );
-    
+            headerEnd);
+
     size_t contentLength = 0;
 
     auto pos =
         header.find(
-            "Content-Length"
-        );
-    
-    if(pos != std::string::npos)
+            "Content-Length");
+
+    if (pos != std::string::npos)
     {
         pos += strlen(
-            "Content-Length:"
-        );
+            "Content-Length:");
 
-        while(
-            header[pos] == ' '
-        ){
+        while (
+            header[pos] == ' ')
+        {
             pos++;
         }
 
-        contentLength = 
+        contentLength =
             std::stoi(
-                header.substr(pos)
-            );
+                header.substr(pos));
     }
 
     size_t bodyStart = headerEnd + 4;
 
-    while(
-        request.size() - bodyStart
-        <
-        contentLength
-    ){
+    while (
+        request.size() - bodyStart <
+        contentLength)
+    {
         int n = recv(
             client_fd,
             buffer,
             sizeof(buffer),
-            0
-        );
+            0);
 
-        if(n <= 0){
+        if (n <= 0)
+        {
             break;
         }
 
         request.append(
             buffer,
-            n
-        );
+            n);
     }
     return request;
 }
 
 bool sendAll(
     int fd,
-    const std::string& data 
-){
+    const std::string &data)
+{
     size_t total = 0;
-    while(total < data.size()){
+    while (total < data.size())
+    {
         int sent = send(
             fd,
             data.c_str() + total,
             data.size() - total,
-            0
-        );
+            0);
 
-        if(sent <= 0){
+        if (sent <= 0)
+        {
             return false;
         }
 
@@ -214,25 +207,59 @@ void Server::acceptLoop()
             continue;
         }
 
-        std::string data = 
+        std::string data =
             readRequest(client_fd);
 
-        if(data.empty()){
+        if (data.empty())
+        {
             close(client_fd);
             continue;
         }
 
-        Request req =
-            Http::parseRequest(data);
+        try
+        {
+            Request req =
+                Http::parseRequest(data);
 
-        Response response = router_.handle(req);
+            auto routerNext = 
+                [this](Request& request)
+                {
+                    return router_.handle(request);
+                };
 
-        std::string result = response.serialize();
+            auto timerNext =
+                [this, routerNext](Request& request)
+                {
+                    return timerMiddleware_.handle(
+                        request,
+                        routerNext
+                    );
+                };
+            
+            Response response =
+                loggerMiddleware_.handle(
+                    req,
+                    timerNext
+                );
 
-        sendAll(
-            client_fd,
-            result
-        );
+            std::string result = response.serialize();
+
+            sendAll(
+                client_fd,
+                result);
+        }
+        catch (const std::exception &e)
+        {
+            Response response =
+                Response::error(
+                    400,
+                    e.what());
+            std::string result =
+                response.serialize();
+            sendAll(
+                client_fd,
+                result);
+        }
 
         close(client_fd);
     }

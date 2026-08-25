@@ -6,6 +6,8 @@ set(CMAKE_CXX_STANDARD 17)
 
 find_package(nlohmann_json CONFIG REQUIRED)
 
+find_package(SQLite3 REQUIRED)
+
 add_compile_options(
     -Wall
     -Wextra
@@ -30,6 +32,10 @@ add_executable(
     src/service/UserService.cpp
 
     src/repository/UserRepository.cpp
+
+    src/middleware/LoggerMiddleware.h
+
+    src/middleware/TimerMiddleware.h
 )
 
 target_include_directories(
@@ -42,4 +48,5 @@ target_link_libraries(
     minibackend
     PRIVATE
     nlohmann_json::nlohmann_json
+    SQLite3::SQLite3
 )

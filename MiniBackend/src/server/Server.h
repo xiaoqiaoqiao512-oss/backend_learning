@@ -3,6 +3,8 @@
 #include "router/Router.h"
 #include "service/UserService.h"
 #include "controller/UserController.h"
+#include "middleware/LoggerMiddleware.h"
+#include "middleware/TimerMiddleware.h"
 
 class Server
 {
@@ -26,4 +28,6 @@ private:
 
     UserService userService_;
     UserController userController_;
+    LoggerMiddleware loggerMiddleware_;
+    TimerMiddleware timerMiddleware_;
 };

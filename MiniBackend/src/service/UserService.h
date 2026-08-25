@@ -3,7 +3,8 @@
 #include "model/User.h"
 #include "repository/UserRepository.h"
 
-#include<string>
+#include <string>
+#include <optional>
 
 class UserService
 {
@@ -13,7 +14,7 @@ public:
         int age
     );
 
-    User* getUserById(
+    std::optional<User> getUserById(
         int id
     );
 private:
