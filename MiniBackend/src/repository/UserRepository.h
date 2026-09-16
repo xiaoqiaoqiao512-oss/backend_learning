@@ -4,7 +4,6 @@
 
 #include <optional>
 #include <sqlite3.h>
-#include <vector>
 
 
 class UserRepository
@@ -23,5 +22,4 @@ public:
 
 private:
     sqlite3* db_;
-    std::vector<User> users_;
 };

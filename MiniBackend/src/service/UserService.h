@@ -18,7 +18,5 @@ public:
         int id
     );
 private:
-   static int count;
-
    UserRepository repository_;
 };
