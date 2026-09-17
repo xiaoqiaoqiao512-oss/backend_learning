@@ -1,7 +1,7 @@
-#pragma once 
+#pragma once
 
-#include<string>
-#include<unordered_map>
+#include <string>
+#include <unordered_map>
 
 class Request
 {
@@ -13,10 +13,14 @@ public:
         std::string,
         std::string
     > headers;
-    std::string body;
-
+    std::unordered_map<
+        std::string,
+        std::string
+    > query;
     std::unordered_map<
         std::string,
         std::string
     > params;
+
+    std::string body;
 };

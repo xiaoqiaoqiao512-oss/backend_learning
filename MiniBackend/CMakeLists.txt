@@ -50,3 +50,30 @@ target_link_libraries(
     nlohmann_json::nlohmann_json
     SQLite3::SQLite3
 )
+
+include(CTest)
+
+if(BUILD_TESTING)
+    add_executable(
+        user_repository_test
+        tests/UserRepositoryTest.cpp
+        src/repository/UserRepository.cpp
+    )
+
+    target_include_directories(
+        user_repository_test
+        PRIVATE
+        src
+    )
+
+    target_link_libraries(
+        user_repository_test
+        PRIVATE
+        SQLite3::SQLite3
+    )
+
+    add_test(
+        NAME user_repository_persistence
+        COMMAND user_repository_test
+    )
+endif()

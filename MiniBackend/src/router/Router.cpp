@@ -1,5 +1,8 @@
 #include "Router.h"
+
 #include <sstream>
+#include <utility>
+#include <vector>
 
 void Router::get(
     const std::string& path,
@@ -92,7 +95,9 @@ bool Router::match(
         return false;
     }
 
-    for(size_t i=0;i<routeParts.size();i++)
+    std::vector<std::pair<std::string, std::string>> pendingParams;
+
+    for(std::size_t i = 0; i < routeParts.size(); ++i)
     {
         std::string routePart =
             routeParts[i];
@@ -105,9 +110,7 @@ bool Router::match(
             std::string key =
                 routePart.substr(1);
 
-            request.params[key]
-                = 
-                requestPart;
+            pendingParams.emplace_back(key, requestPart);
         }
         else
         {
@@ -116,6 +119,11 @@ bool Router::match(
                 return false;
             }
         }
+    }
+
+    for(const auto& [key, value] : pendingParams)
+    {
+        request.params[key] = value;
     }
 
     return true;

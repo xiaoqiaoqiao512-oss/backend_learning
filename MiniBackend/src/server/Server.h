@@ -14,6 +14,7 @@ public:
 
 private:
     void createSocket();
+    void configureSocket();
     void bindSocket();
     void listenSocket();
     void acceptLoop();

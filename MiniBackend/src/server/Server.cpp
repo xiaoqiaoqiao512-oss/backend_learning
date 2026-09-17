@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include <cstring>
+#include <cerrno>
 
 #include <sys/socket.h>
 #include <netinet/in.h>
@@ -35,6 +36,7 @@ Server::Server(int port)
 void Server::start()
 {
     createSocket();
+    configureSocket();
     bindSocket();
     listenSocket();
     acceptLoop();
@@ -51,6 +53,23 @@ void Server::createSocket()
     {
         throw std::runtime_error(
             "socket failed");
+    }
+}
+
+void Server::configureSocket()
+{
+    int option = 1;
+    if(setsockopt(
+        server_fd_,
+        SOL_SOCKET,
+        SO_REUSEADDR,
+        &option,
+        sizeof(option)) == -1)
+    {
+        throw std::runtime_error(
+            std::string("setsockopt failed: ") +
+            std::strerror(errno)
+        );
     }
 }
 
