@@ -76,4 +76,21 @@ if(BUILD_TESTING)
         NAME user_repository_persistence
         COMMAND user_repository_test
     )
+
+    add_executable(
+        http_parser_test
+        tests/HttpParserTest.cpp
+        src/http/Http.cpp
+    )
+
+    target_include_directories(
+        http_parser_test
+        PRIVATE
+        src
+    )
+
+    add_test(
+        NAME http_parser
+        COMMAND http_parser_test
+    )
 endif()

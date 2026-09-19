@@ -1,6 +1,7 @@
 #include "Http.h"
 
-#include<sstream>
+#include <sstream>
+#include <stdexcept>
 
 Request Http::parseRequest(
     const std::string& data
@@ -8,7 +9,7 @@ Request Http::parseRequest(
 {
     Request request;
 
-    size_t headerEnd = 
+    const std::size_t headerEnd =
         data.find("\r\n\r\n");
 
     std::string headerPart;
@@ -31,14 +32,43 @@ Request Http::parseRequest(
         headerPart = data;
     }
 
-    std::stringstream ss(headerPart);
+    std::stringstream headerStream(headerPart);
 
     std::string pathWithQuery;
+    std::string requestLine;
 
-    ss
-    >> request.method
-    >> pathWithQuery
-    >> request.version;
+    if(!std::getline(headerStream, requestLine))
+    {
+        throw std::invalid_argument(
+            "invalid HTTP request line"
+        );
+    }
+
+    if(!requestLine.empty() && requestLine.back() == '\r')
+    {
+        requestLine.pop_back();
+    }
+
+    std::stringstream requestLineStream(requestLine);
+    std::string extraToken;
+
+    if(!(requestLineStream
+        >> request.method
+        >> pathWithQuery
+        >> request.version)
+       || (requestLineStream >> extraToken))
+    {
+        throw std::invalid_argument(
+            "invalid HTTP request line"
+        );
+    }
+
+    if(request.version != "HTTP/1.1")
+    {
+        throw std::invalid_argument(
+            "unsupported HTTP version"
+        );
+    }
 
     const std::size_t queryStart =
         pathWithQuery.find('?');
@@ -95,33 +125,37 @@ Request Http::parseRequest(
 
     std::string line;
 
-    std::getline(
-        ss,
-        line
-    );
-
     while(
-        std::getline(ss, line)
+        std::getline(headerStream, line)
     )
     {
-        if(line.empty()){
+        if(!line.empty() && line.back() == '\r')
+        {
+            line.pop_back();
+        }
+
+        if(line.empty())
+        {
             continue;
         }
 
-        size_t pos = 
+        const std::size_t pos =
             line.find(":");
 
-        if(pos == std::string::npos){
-            continue;
+        if(pos == std::string::npos || pos == 0)
+        {
+            throw std::invalid_argument(
+                "invalid HTTP header"
+            );
         }
 
-        std::string key = 
+        const std::string key =
             line.substr(
                 0,
                 pos
             );
-        
-        std::string value = 
+
+        std::string value =
             line.substr(
                 pos + 1
             );
@@ -129,7 +163,7 @@ Request Http::parseRequest(
         while(
             !value.empty()
             &&
-            value[0]==' '
+            (value[0] == ' ' || value[0] == '\t')
         )
         {
             value.erase(
